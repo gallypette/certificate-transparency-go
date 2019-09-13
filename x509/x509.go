@@ -1573,7 +1573,7 @@ func parseSANExtension(value []byte, nfe *NonFatalErrors) (dnsNames, emailAddres
 			}
 			if len(uri.Host) > 0 {
 				if _, ok := domainToReverseLabels(uri.Host); !ok {
-					nfe.AddError(error.New("x509: cannot parse URI %q: invalid domain", string(data)))
+					nfe.AddError(errors.New("x509: cannot parse URI %q: invalid domain", string(data)))
 				}
 			}
 			uris = append(uris, uri)
